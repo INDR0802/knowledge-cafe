@@ -1,3 +1,7 @@
+import BookmarkPost from "./BookmarkPost";
+
+import { FaBookmark } from "react-icons/fa";
+
 const Blog = ({ data }) => {
   let {
     cover,
@@ -9,8 +13,12 @@ const Blog = ({ data }) => {
     hashtags,
   } = data;
 
+  let markAsRead = (title) => {
+    <BookmarkPost/>
+  };
+
   return (
-    <div>
+    <div className="mb-[50px]">
       <img src={cover} alt="" className="w-screen" />
       <div className="flex justify-between my-3">
         <div className="flex items-center gap-2">
@@ -20,12 +28,23 @@ const Blog = ({ data }) => {
             <p>{posted_date}</p>
           </div>
         </div>
-        <p>{reading_time} min read</p>
+        <div className="flex items-center gap-2">
+          <p>{reading_time} min read</p>
+          <button>
+            <FaBookmark></FaBookmark>
+          </button>
+        </div>
       </div>
       <h1 className="text-3xl font-extrabold">{title}</h1>
       <p>
         #{hashtags[0]} #{hashtags[1]}
       </p>
+      <button
+        className="mt-3 font-extrabold text-purple-500 underline"
+        onClick={() => markAsRead(title)}
+      >
+        Mark as read
+      </button>
     </div>
   );
 };
