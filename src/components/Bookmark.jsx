@@ -10,7 +10,6 @@ const Bookmark = ({ bookmarks }) => {
         {bookmarks.map((bookmark) => (
           <BookmarkPost key={bookmark.id} bookmark={bookmark} />
         ))}
-        <h1>hello</h1>
       </div>
     </div>
   );
