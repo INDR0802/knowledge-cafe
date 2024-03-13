@@ -1,8 +1,6 @@
-import BookmarkPost from "./BookmarkPost";
-
 import { FaBookmark } from "react-icons/fa";
 
-const Blog = ({ data }) => {
+const Blog = ({ data, handleBookmark }) => {
   let {
     cover,
     title,
@@ -14,7 +12,7 @@ const Blog = ({ data }) => {
   } = data;
 
   let markAsRead = (title) => {
-    <BookmarkPost/>
+    console.log(title);
   };
 
   return (
@@ -30,7 +28,7 @@ const Blog = ({ data }) => {
         </div>
         <div className="flex items-center gap-2">
           <p>{reading_time} min read</p>
-          <button>
+          <button onClick={() => handleBookmark(data)}>
             <FaBookmark></FaBookmark>
           </button>
         </div>
